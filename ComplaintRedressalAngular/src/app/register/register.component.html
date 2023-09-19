@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" ngNativeValidate >
+    <label>Enter Name:</label>
+    <input type="text" name="username" [(ngModel)]="user.username" required><br>
+    <label>Enter user password</label>
+    <input type="password" name="password" [(ngModel)]="user.password" required ><br>
+    <label>Enter user role: </label>
+    <select class="d-flex p-1" name="role" [(ngModel)]="user.role" required>
+        <option value="manager">Manager</option>
+        <option value="engineer">Engineer</option>
+        <option value="customer">Customer</option>
+    </select><br>
+    <div  *ngIf="user.role=='manager'">
+    <label>Pincode: </label>
+    <select [(ngModel)]="user.pincode" name="pincode">
+        <option [ngValue]="item" *ngFor="let item of pincodeList; let i=index;">{{item}}</option>
+    </select>
+    </div>
+    <input class="btn btn-primary btn-lg" type="Submit">
+    <input class="btn btn-primary btn-lg" type="Reset">
+    </form>
+    <button class="btn btn-warning btn-lg" routerLink="/admin/homepage">Go back to admin Homepage</button>

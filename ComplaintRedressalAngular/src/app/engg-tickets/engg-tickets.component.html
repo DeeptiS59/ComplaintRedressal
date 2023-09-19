@@ -1,0 +1,21 @@
+<p>engg-tickets works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Issue Type</th>
+            <th>Date of Complaint</th>
+                       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of displayedTicketList; let i = index;">
+           
+            <td>{{item.name}} </td> 
+            <td>{{item.issueType}} </td> 
+            <td>{{item.raiseDate}} </td> 
+            
+            <td><button class="btn btn-danger btn-lg" [routerLink]="['/engineer/tickets',item.id]"> View Assigned Ticket Details</button></td>
+            </tr>
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+<p>manager-tickets works!</p>
+<p>Your Assigned Pincode: {{pincode}}</p>
+filter
+<select (change)="changeFilter($event)">
+    <option value="all">All Tickets</option>
+    <option value="assignedPincode">My Area Tickets</option>
+</select>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Issue Type</th>
+            <th>Date of Complaint</th>
+            <th>Pincode</th>
+                       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of displayedList; let i = index;">
+           
+            <td>{{item.name}} </td> 
+            <td>{{item.issueType}} </td> 
+            <td>{{item.raiseDate}} </td> 
+            <td>{{item.pincode}} </td> 
+            <td><button class="btn btn-danger btn-lg" [routerLink]="['/manager/tickets',item.id]"> View Ticket Details</button></td>
+           
+            </tr>
+    </tbody>
+</table>

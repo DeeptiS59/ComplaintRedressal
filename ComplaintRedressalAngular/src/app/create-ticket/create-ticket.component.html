@@ -1,0 +1,26 @@
+<p>create-ticket works!</p>
+<button class="btn btn-danger btn-lg" routerLink="/logout">Logout</button>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label><b>Issue new Ticket</b></label><br>
+    <label>Enter your name:</label>
+    <input type="text"  [(ngModel)]="ticket.name" name="name" required><br>
+    <label>Type of Complaint:</label>
+    <select [(ngModel)]="ticket.issueType" name="type">
+        <option> Cant make calls</option>
+        <option> Cant receive calls</option>
+        <option> Cant make and receive calls</option>
+    </select><hr>
+    <label>Enter your address </label>
+    <input type="text" name="address" [(ngModel)]="ticket.address">
+    <label>Pincode </label>
+    <select [(ngModel)]="ticket.pincode" name="pincode">
+        <option [ngValue]="item" *ngFor="let item of pincodeList; let i=index;">{{item}}</option>
+    </select><br>
+    <label>Enter your contact number:</label>
+    <input type="number" name="contact" [(ngModel)]="ticket.contact"><br>
+   
+      
+    <input class="btn btn-success btn-lg" type="Submit">
+    <input class="btn btn-primary btn-lg" type="reset">
+    
+    </form>

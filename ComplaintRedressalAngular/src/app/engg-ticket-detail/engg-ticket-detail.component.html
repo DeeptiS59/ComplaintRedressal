@@ -1,0 +1,19 @@
+<p>engg-ticket-detail works!</p>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+<div>Assigned To: {{ticket.assignedTo?ticket.assignedTo.username:""}}</div>
+<div>Ticket Status: <select  [(ngModel)]="ticket.status" name="status" required>
+    <option value="raised">Raised</option>
+    <option value="wip">Work In Progress</option>
+    <option value="resolved">Resolved</option>
+    <option value="escalated">Escalated</option>
+</select></div>
+<div>Ticket issue Type: {{ticket.issueType}}</div>
+<div>Customer Name: {{ticket.name}}</div>
+<div>Address where field worker needs to arrive(if needed): {{ticket.address}}{{ticket.pincode}}</div>
+<div>Account Name: {{ticket.createdBy?ticket.createdBy.username:""}}</div>
+<div>Complaint Date: {{ticket.raiseDate}}</div>
+<div>Contact Number: {{ticket.contact}}</div>
+<div> Customer Feedback: {{ticket.feedback}}</div>
+<input class="btn btn-success btn-lg" type="Submit">
+<input class="btn btn-primary btn-lg" type="reset">
+</form>
